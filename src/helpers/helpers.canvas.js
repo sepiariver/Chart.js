@@ -135,6 +135,17 @@ var exports = module.exports = {
 			ctx.lineTo(x + xOffset, y - yOffset);
 			ctx.closePath();
 			break;
+		case 'star2':
+		    var star2alpha = (2 * Math.PI) / 10;
+	        ctx.beginPath();
+	        for (var i = 11; i !== 0; i--) {
+	            var r = radius*(i % 2 + 1)/2;
+	            var omega = star2alpha * i;
+	            ctx.lineTo((r * Math.sin(omega)) + x, (r * Math.cos(omega)) + y);
+	        }
+	        ctx.closePath();
+	        ctx.fill();
+	        break;
 		case 'line':
 			ctx.beginPath();
 			ctx.moveTo(x - radius, y);
